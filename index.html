@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Stack Carsh Course - Kursus Web Apps Pemula</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icofont/1.0.1/css/icofont.min.css">
+    <style>
+        /* Custom CSS untuk halaman */
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .carousel-item {
+            text-align: center;
+        }
+
+        .alert-box {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1050;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            filter: invert(100%);
+        }
+
+        .pricing-section {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            border-radius: 10px;
+        }
+
+        .pricing-section h1 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .pricing-section .btn {
+            font-size: 1.25rem;
+            padding: 10px 20px;
+        }
+
+        .pricing-tag {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="hero" class="bg-secondary text-white py-5">
+        <div class="container text-center">
+            <img src="https://toyyibpay.com/asset/img/usr/68863/product/bcdd7890350416c7849d4870cf2ac65213ae56a0b37c52eb15817746014aa1bc.png"
+                style="width: 60%;" alt="Kursus Web Apps Development" class="img-fluid mb-4 product-image">
+            <h2><i class="icofont-code-alt"></i> Bersedia untuk Memulakan Kerjaya dalam Software Engineering</h2>
+            <p>Kursus ini direka khusus untuk beginner student <b>Diploma/Degree</b> dan <b>Dah Tau ASAS CODING</b> tapi tak tahu nak develop software macam mana</p>
+            <a href="https://toyyibpay.com/Basic-Stack-Crash-Course-Promo" class="btn btn-danger btn-lg mt-3">Beli Sekarang<i
+                    class="icofont-shopping-cart"></i></a>
+        </div>
+    </section>
+
+    <section id="features" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Apa yang Anda Akan Pelajari</h2>
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h3>📘 <i class="icofont-html5"></i> Struktur Web Apps dengan HTML & Bootstrap</h3>
+                            <p>Belajar cara untuk mencipta dan mengatur layout web apps dengan HTML dan Bootstrap 4 yang moden.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h3>🛠 <i class="icofont-settings"></i> Fungsi Backend dengan PHP</h3>
+                            <p>Mengimplementasikan fungsi server-side untuk mengendalikan logik perniagaan dalam aplikasi.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h3>💾 <i class="icofont-database"></i> Pengurusan Data dengan MySQL</h3>
+                            <p>Pelajari asas pangkalan data untuk menyimpan dan menyoal data secara efektif menggunakan MySQL.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="outcome" class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="text-center">Hasil Kursus</h2>
+            <p class="text-center mt-4">Pada akhir kursus ini, anda akan menyelesaikan mini-projek web apps yang
+                memanfaatkan HTML, PHP, dan MySQL untuk mencipta aplikasi berfungsi dunia sebenar. Kursus ini ideal bagi mereka yang
+                serius untuk menceburi bidang pembangunan perisian!</p>
+        </div>
+    </section>
+
+    <section id="purchase" class="pricing-section">
+        <div class="container mt-4">
+            <h2 class="text-center">💥 PROMOSI KHAS 💥</h2>
+            <h1 class="text-center">
+                <span class="pricing-tag">
+                    Harga Asal: <span style="text-decoration: line-through;">RM 79.00</span>
+                    <br>
+                    Sekarang: <span style="color: #28a745;">RM 49.00 sahaja!</span>
+                </span>
+            </h1>
+
+            <!-- Countdown Timer -->
+            <div class="text-center mt-4">
+                <h3><span id="countdown-timer">Dapatkan SEGERA</span> sebelum promo tamat!</h3>
+                <div id="countdown" style="font-size: 2rem; margin-top: 10px; background-color: #dc3545; color: white; padding: 10px; border-radius: 5px;">
+                    <!--<span id="days" style="font-weight: bold;">06</span> Hari-->
+                    <span id="hours" style="font-weight: bold;">00</span> Jam
+                    <span id="minutes" style="font-weight: bold;">00</span> Minit
+                    <span id="seconds" style="font-weight: bold;">00</span> Saat
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="https://toyyibpay.com/Basic-Stack-Crash-Course-Promo" class="btn btn-success btn-lg">Dapatkan Sekarang!<i class="icofont-credit-card"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Boss Nizam - Hakcipta Terpelihara <i class="icofont-copyright"></i></p>
+    </footer>
+
+    <div class="alert-box"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+       // Countdown timer function with persistent storage
+function startCountdown(hoursRemaining) {
+    // Check if there's an end time saved in localStorage
+    let endTime = localStorage.getItem('countdownEndTime');
+    
+    // If no end time is saved or if the countdown has expired, set a new end time
+    if (!endTime || new Date().getTime() > endTime) {
+        let countdownDate = new Date();
+        countdownDate.setHours(countdownDate.getHours() + hoursRemaining);
+        endTime = countdownDate.getTime();
+        localStorage.setItem('countdownEndTime', endTime);
+    }
+
+    // Update countdown every second
+    let countdownInterval = setInterval(function () {
+        let now = new Date().getTime();
+        let distance = endTime - now;
+
+        // Time calculations for hours, minutes, and seconds
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the countdown elements
+        //document.getElementById("days").style.display = "none"; // Hide days if only 4 hours countdown
+        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+
+        // If the countdown is finished, reset the end time and restart the countdown
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            localStorage.removeItem('countdownEndTime');
+            document.getElementById("countdown").innerHTML = "Promo Tamat!";
+        }
+    }, 1000);
+}
+
+// Initialize the countdown timer with 4 hours
+startCountdown(4);
+    </script>
+</body>
+
+</html>
