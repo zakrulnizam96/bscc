@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Stack Carsh Course - Kursus Web Apps Pemula</title>
+    <title>Basic Stack Crash Course - Kursus Web Apps Pemula</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icofont/1.0.1/css/icofont.min.css">
     <style>
@@ -56,6 +56,26 @@
             border-radius: 5px;
             font-size: 1.5rem;
             font-weight: bold;
+        }
+
+        /* CSS untuk countdown agar tetap satu baris */
+        #countdown {
+            white-space: nowrap; /* Mencegah teks pecah ke baris baru */
+            overflow: hidden; /* Sembunyikan bagian yang keluar dari area elemen */
+            text-overflow: ellipsis; /* Tampilkan ... jika teks terlalu panjang */
+            font-size: 2rem;
+            margin-top: 10px;
+            background-color: #dc3545;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Penyesuaian untuk layar mobile */
+        @media (max-width: 576px) {
+            #countdown {
+                font-size: 1.5rem; /* Mengurangi ukuran font pada layar kecil */
+            }
         }
     </style>
 </head>
@@ -127,30 +147,27 @@
             <!-- Countdown Timer -->
             <div class="text-center mt-4">
                 <h3><span id="countdown-timer">Dapatkan SEGERA</span> sebelum promo tamat!</h3>
-                <div id="countdown" style="font-size: 2rem; margin-top: 10px; background-color: #dc3545; color: white; padding: 10px; border-radius: 5px;">
-                    <!--<span id="days" style="font-weight: bold;">06</span> Hari-->
+                <div id="countdown">
                     <span id="hours" style="font-weight: bold;">00</span> Jam
                     <span id="minutes" style="font-weight: bold;">00</span> Minit
                     <span id="seconds" style="font-weight: bold;">00</span> Saat
                 </div>
             </div>
-
             <div class="text-center mt-4">
                 <a href="https://toyyibpay.com/Basic-Stack-Crash-Course-Promo" class="btn btn-success btn-lg">Dapatkan Sekarang!<i class="icofont-credit-card"></i></a>
             </div>
         </div>
     </section>
-    
-    <section id="subscription" class="py-5">
-    <div class="container">
-       <h2 class="text-center">✋TAPI NANTI KEJAP✋</h2>
-         <p class="text-center mt-4">Ada yang pm saya bagitau dia tak mampu bayar one off. Jadi saya sediakan satu cara lain iaitu <strong lang="ms">langganan mingguan hanya RM 9.90</strong>. Kalau nak jimat, boleh langgan seminggu, habiskan semua video, dan unsubscribe selepas itu (tetapi jika unsubscribe, akses kepada video kursus akan terhenti).</p>
-        <div class="text-center mt-4">
-            <a href="https://buy.stripe.com/5kA298b522kn6xq7sD" class="btn btn-primary btn-lg">Langgan Mingguan RM 9.90 <i class="icofont-credit-card"></i></a>
-        </div>
-    </div>
-</section>
 
+    <section id="subscription" class="py-5">
+        <div class="container">
+            <h2 class="text-center">✋TAPI NANTI KEJAP</h2>
+            <p class="text-center mt-4">Ada yang pm saya bagitau dia tak mampu bayar one off. Jadi saya sediakan satu cara lain iaitu <strong lang="ms">langganan mingguan hanya RM 9.90</strong>. Kalau nak jimat, boleh langgan seminggu, habiskan semua video, dan unsubscribe selepas itu (tetapi jika unsubscribe, akses kepada video kursus akan terhenti).</p>
+            <div class="text-center mt-4">
+                <a href="https://buy.stripe.com/5kA298b522kn6xq7sD" class="btn btn-primary btn-lg">Langgan Mingguan RM 9.90 <i class="icofont-credit-card"></i></a>
+            </div>
+        </div>
+    </section>
 
     <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2024 Boss Nizam - Hakcipta Terpelihara <i class="icofont-copyright"></i></p>
@@ -162,46 +179,30 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-       // Countdown timer function with persistent storage
-function startCountdown(hoursRemaining) {
-    // Check if there's an end time saved in localStorage
-    let endTime = localStorage.getItem('countdownEndTime');
-    
-    // If no end time is saved or if the countdown has expired, set a new end time
-    if (!endTime || new Date().getTime() > endTime) {
-        let countdownDate = new Date();
-        countdownDate.setHours(countdownDate.getHours() + hoursRemaining);
-        endTime = countdownDate.getTime();
-        localStorage.setItem('countdownEndTime', endTime);
-    }
+        function startCountdown(hoursRemaining) {
+            let endTime = localStorage.getItem('countdownEndTime');
+            if (!endTime || new Date().getTime() > endTime) {
+                let countdownDate = new Date();
+                countdownDate.setHours(countdownDate.getHours() + hoursRemaining);
+                endTime = countdownDate.getTime();
+                localStorage.setItem('countdownEndTime', endTime);
+            }
 
-    // Update countdown every second
-    let countdownInterval = setInterval(function () {
-        let now = new Date().getTime();
-        let distance = endTime - now;
+            setInterval(function () {
+                let now = new Date().getTime();
+                let timeLeft = endTime - now;
 
-        // Time calculations for hours, minutes, and seconds
-        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-        // Display the result in the countdown elements
-        //document.getElementById("days").style.display = "none"; // Hide days if only 4 hours countdown
-        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
-        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
-        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
-
-        // If the countdown is finished, reset the end time and restart the countdown
-        if (distance < 0) {
-            clearInterval(countdownInterval);
-            localStorage.removeItem('countdownEndTime');
-            document.getElementById("countdown").innerHTML = "Promo Tamat!";
+                document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+            }, 1000);
         }
-    }, 1000);
-}
 
-// Initialize the countdown timer with 4 hours
-startCountdown(4);
+        startCountdown(48);
     </script>
 </body>
 
